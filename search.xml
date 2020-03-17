@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>new Post test</title>
-    <url>/2020/03/18/ew-Post-test/</url>
-    <content><![CDATA[<p>？</p>
-]]></content>
-      <categories>
-        <category>life</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hello-World</title>
     <url>/2020/03/17/Hello-World/</url>
     <content><![CDATA[<p>&emsp;&emsp;博客终于搭建好了，第一篇日志就来测试一下所有常用的功能写法吧。</p>
