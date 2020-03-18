@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -367,12 +368,12 @@ mjx-container + br {
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+            <span id="/2020/03/17/Hello-World/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
+              <span class="leancloud-visitors-count"></span>
             </span>
   
   <span class="post-meta-item">
@@ -599,24 +600,6 @@ mjx-container + br {
 </div>
 
         
-  <div class="popular-posts-header">📚 相关推荐</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\17\Hello-World - 副本 - 副本 - 副本 - 副本 - 副本\" rel="bookmark">Hello World</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\17\Hello-World - 副本 - 副本 - 副本 - 副本 - 副本 - 副本\" rel="bookmark">Hello World</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\17\Hello-World - 副本 - 副本 - 副本 - 副本\" rel="bookmark">Hello World</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\17\Hello-World - 副本 - 副本 - 副本\" rel="bookmark">Hello World</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\03\17\Hello-World - 副本 - 副本\" rel="bookmark">Hello World</a></div>
-    </li>
-  </ul>
 
 
       <footer class="post-footer">
@@ -630,13 +613,6 @@ mjx-container + br {
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item"></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/17/Hello-World%20-%20%E5%89%AF%E6%9C%AC/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -645,7 +621,6 @@ mjx-container + br {
   
 
   </div>
-
 
           </div>
           
@@ -712,7 +687,7 @@ mjx-container + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -775,26 +750,6 @@ mjx-container + br {
 </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -873,14 +828,14 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'YWknlfNio96H4VkW3mCw5BgX-gzGzoHsz',
       appKey     : 't6IQkSpRarS17LQDMuHTVYeC',
       placeholder: "说点什么吧。",
-      avatar     : 'mm',
+      avatar     : 'retro',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : false,
+      visitor    : true,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
       recordIP   : true,
