@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2020/03/17/Hello-World%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/</url>
+    <url>/2020/03/17/Hello-World%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/</url>
     <content><![CDATA[<p>&emsp;&emsp;博客终于搭建好了，第一篇日志就来测试一下所有常用的功能写法吧。</p>
 <a id="more"></a>
 <h1 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h1><h2 id="·-代码块"><a href="#·-代码块" class="headerlink" title="· 代码块"></a>· 代码块</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> type = <span class="string">"Code-Block"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    print(type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -172,7 +172,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2020/03/17/Hello-World%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/</url>
+    <url>/2020/03/17/Hello-World%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/</url>
     <content><![CDATA[<p>&emsp;&emsp;博客终于搭建好了，第一篇日志就来测试一下所有常用的功能写法吧。</p>
 <a id="more"></a>
 <h1 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h1><h2 id="·-代码块"><a href="#·-代码块" class="headerlink" title="· 代码块"></a>· 代码块</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> type = <span class="string">"Code-Block"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    print(type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -682,7 +682,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2020/03/17/Hello-World%20-%20%E5%89%AF%E6%9C%AC/</url>
+    <url>/2020/03/17/Hello-World/</url>
     <content><![CDATA[<p>&emsp;&emsp;博客终于搭建好了，第一篇日志就来测试一下所有常用的功能写法吧。</p>
 <a id="more"></a>
 <h1 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h1><h2 id="·-代码块"><a href="#·-代码块" class="headerlink" title="· 代码块"></a>· 代码块</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> type = <span class="string">"Code-Block"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    print(type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1022,7 +1022,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2020/03/17/Hello-World/</url>
+    <url>/2020/03/17/Hello-World%20-%20%E5%89%AF%E6%9C%AC/</url>
     <content><![CDATA[<p>&emsp;&emsp;博客终于搭建好了，第一篇日志就来测试一下所有常用的功能写法吧。</p>
 <a id="more"></a>
 <h1 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h1><h2 id="·-代码块"><a href="#·-代码块" class="headerlink" title="· 代码块"></a>· 代码块</h2><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> type = <span class="string">"Code-Block"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    print(type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
