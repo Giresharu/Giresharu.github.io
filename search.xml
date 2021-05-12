@@ -3,7 +3,7 @@
   <entry>
     <title>【Godot笔记】协程与Yield</title>
     <url>/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/</url>
-    <content><![CDATA[<p>&emsp;&emsp;以前在Unity使用过很多次Corountine协程来做一些持续动作，如在其他代码也在正常运行的情况下让某些物体持续运动，但从未求甚解。如今转到Godot，协程的写法产生了一些变化，乘此学习的机会，也把协程本来的功能也研究了一番。</p>
+    <content><![CDATA[<p>&emsp;&emsp;以前在Unity使用过很多次Corountine协程来做一些持续动作，如在其他代码也在正常运行的情况下让某些物体持续运动，但从未求甚解。如今转到Godot，协程的写法产生了一些变化，乘此学习的机会，也把协程本来的功能也研究了一番。 </p>
 <a id="more"></a>
 <h1 id="初级范例"><a href="#初级范例" class="headerlink" title="初级范例"></a>初级范例</h1><p>&emsp;&emsp;首先Godot不需要特地声明类似IEnumeable的接口，就可以让一个函数成为协程函数。<br>调用一个协程函数时，也不需要类似StarCoroutine的方法来开始协程。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">func Execute():</span><br><span class="line">    print(<span class="string">"我先走完这第一步，其他的下次再说"</span>)</span><br><span class="line">    <span class="keyword">yield</span>()</span><br><span class="line">    print(<span class="string">"好了我回来了，继续运行"</span>)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">    var exe = Execute()</span><br><span class="line">    print(<span class="string">"先暂停一下哈"</span>)</span><br><span class="line">    exe.resume()</span><br></pre></td></tr></table></figure>
