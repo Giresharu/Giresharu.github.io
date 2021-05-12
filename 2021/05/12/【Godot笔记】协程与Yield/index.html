@@ -22,29 +22,32 @@
     var CONFIG = {"hostname":"giresharu.github.io","root":"/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#c85951","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"没有找到『${query}』相关的内容。","hits_stats":"在${time} ms内找到${hits} 个结果。"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="蜗牛背着那重重的壳呀，一步一步往上爬">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿门阿前一棵葡萄树">
-<meta property="og:url" content="http://giresharu.github.io/index.html">
+  <meta name="description" content="&amp;emsp;&amp;emsp;以前在Unity使用过很多次Corountine协程来做一些持续动作，如在其他代码也在正常运行的情况下让某些物体持续运动，但从未求甚解。如今转到Godot，协程的写法产生了一些变化，乘此学习的机会，也把协程本来的功能也研究了一番。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Godot笔记】协程与Yield">
+<meta property="og:url" content="http://giresharu.github.io/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/index.html">
 <meta property="og:site_name" content="阿门阿前一棵葡萄树">
-<meta property="og:description" content="蜗牛背着那重重的壳呀，一步一步往上爬">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;以前在Unity使用过很多次Corountine协程来做一些持续动作，如在其他代码也在正常运行的情况下让某些物体持续运动，但从未求甚解。如今转到Godot，协程的写法产生了一些变化，乘此学习的机会，也把协程本来的功能也研究了一番。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-12T15:58:00.000Z">
+<meta property="article:modified_time" content="2021-05-12T17:29:46.463Z">
 <meta property="article:author" content="Giresharu">
+<meta property="article:tag" content="Godot">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://giresharu.github.io/">
+<link rel="canonical" href="http://giresharu.github.io/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false
+    isHome : false,
+    isPost : true
   };
 </script>
 
-  <title>阿门阿前一棵葡萄树</title>
+  <title>【Godot笔记】协程与Yield | 阿门阿前一棵葡萄树</title>
   
 
 
@@ -311,10 +314,10 @@ mjx-container + br {
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://giresharu.github.io/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -328,8 +331,7 @@ mjx-container + br {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/" class="post-title-link" itemprop="url">【Godot笔记】协程与Yield</a>
+          【Godot笔记】协程与Yield
         </h1>
 
         <div class="post-meta">
@@ -376,122 +378,91 @@ mjx-container + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>&emsp;&emsp;以前在Unity使用过很多次Corountine协程来做一些持续动作，如在其他代码也在正常运行的情况下让某些物体持续运动，但从未求甚解。如今转到Godot，协程的写法产生了一些变化，乘此学习的机会，也把协程本来的功能也研究了一番。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>&emsp;&emsp;以前在Unity使用过很多次Corountine协程来做一些持续动作，如在其他代码也在正常运行的情况下让某些物体持续运动，但从未求甚解。如今转到Godot，协程的写法产生了一些变化，乘此学习的机会，也把协程本来的功能也研究了一番。</p>
+<a id="more"></a>
+<h1 id="初级范例"><a href="#初级范例" class="headerlink" title="初级范例"></a>初级范例</h1><p>&emsp;&emsp;首先Godot不需要特地声明类似IEnumeable的接口，就可以让一个函数成为协程函数。<br>调用一个协程函数时，也不需要类似StarCoroutine的方法来开始协程。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func Execute():</span><br><span class="line">    print(<span class="string">"我先走完这第一步，其他的下次再说"</span>)</span><br><span class="line">    <span class="keyword">yield</span>()</span><br><span class="line">    print(<span class="string">"好了我回来了，继续运行"</span>)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">    var exe = Execute()</span><br><span class="line">    print(<span class="string">"先暂停一下哈"</span>)</span><br><span class="line">    exe.resume()</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我先走完这第一步，其他的下次再说</span><br><span class="line">先暂停一下哈</span><br><span class="line">好了我回来了，继续运行</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;我们逐步分析一下发生了什么：</p>
+<ol>
+<li>exe的赋值语句调用了Execute函数，首先执行第一步print。</li>
+<li>Execute函数运行到第二行，遇到了yield，于是将目前的函数暂停，并返回一个GDScriptFunctionStat类型的对象给变量exe。这个对象包含了Execute这次运行的状态，并且拥有一个很重要的函数：resume,可以在这句函数后立即继续此对象对应函数的运行，直到下一个yield或运行结束。</li>
+<li>经过_ready函数的print后，调用了exe.resume，重新运行中断的Execute函数，执行最后一部print。</li>
+</ol>
+<div class="note warning">
+            <p>需要注意的是，已经被赋值给exe的GDScriptFunctionStat并不会因为多次yield而刷新，而resume过的旧GDScriptFunctionStat也会被释放。所以如果有多个要多次resume，则每次resume都应该如同原来赋值给exe那样，也赋值给exe。</p>
+          </div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#多次yield的写法，exe要对新的GDScriptFunctionStat进行接力</span></span><br><span class="line"></span><br><span class="line">func Execute():</span><br><span class="line">    print(<span class="string">"我先走完这第一步，其他的下次再说"</span>)</span><br><span class="line">    <span class="keyword">yield</span>()</span><br><span class="line">    print(<span class="string">"好了我回来了，继续运行"</span>)</span><br><span class="line">    <span class="keyword">yield</span>()</span><br><span class="line">    print(<span class="string">"exe要是没有接力，是到不了我这儿的哦"</span>)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">    var exe = Execute()</span><br><span class="line">    print(<span class="string">"先暂停一下哈"</span>)</span><br><span class="line">    exe = exe.resume()</span><br><span class="line">    exe.resume() <span class="comment">#这个时候的exe已经是从第二个yield回来的了</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我先走完这第一步，其他的下次再说</span><br><span class="line">先暂停一下哈</span><br><span class="line">好了我回来了，继续运行</span><br><span class="line">exe要是没有接力，是到不了我这儿的哦</span><br></pre></td></tr></table></figure>
+
+<h1 id="Yield与信号激活"><a href="#Yield与信号激活" class="headerlink" title="Yield与信号激活"></a>Yield与信号激活</h1><p>&emsp;&emsp;配合信号系统，Godot能够轻松地在各种情况下不使用resume也能恢复协程函数的运行。这需要在使用Yield的时候，填上响应的信号参数。</p>
+<h2 id="节点信号"><a href="#节点信号" class="headerlink" title="节点信号"></a>节点信号</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#当node发出了"gogogo"信号时，从这个yield暂停出去的函数会恢复运行，等同于resume了一次</span></span><br><span class="line"><span class="keyword">yield</span>(node, <span class="string">"gogogo"</span>)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;除了用户在脚本中声明和发射的信号，yield也可以被一些内置的信号激活。</p>
+<h2 id="函数结束信号"><a href="#函数结束信号" class="headerlink" title="函数结束信号"></a>函数结束信号</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#当一个函数运行结束时，会发射"completed"信号，我们可以这样写来侦测到</span></span><br><span class="line"><span class="keyword">yield</span>(somefunc(), <span class="string">"completed"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="每帧一次信号"><a href="#每帧一次信号" class="headerlink" title="每帧一次信号"></a>每帧一次信号</h2><p>&emsp;&emsp;当一个我们需要一个协程函数每帧被resume一次的时候，可以这么写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#"idle_frame"是SenceTree每帧都会发射一次的信号。</span></span><br><span class="line"><span class="keyword">yield</span>(get_tree(), <span class="string">"idle_frame"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="计时器信号"><a href="#计时器信号" class="headerlink" title="计时器信号"></a>计时器信号</h2><p>&emsp;&emsp;与Unity的WaitForSeconds不同，Godot的延时协程需要创建一个计时器实例来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用SenceTree的create_timer函数创建一个计时器实例，计时器在倒计时结束后会发射"timeout"信号。</span></span><br><span class="line"><span class="keyword">yield</span>(get_tree().create_timer(<span class="number">1.0</span>), <span class="string">"timeout"</span>)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;其他的内置信号还有待发掘。</p>
+<h1 id="协程循环"><a href="#协程循环" class="headerlink" title="协程循环"></a>协程循环</h1><p>&emsp;&emsp;有了以上的信号，我们就能够做出一个可以循环的简单协程了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func loop_until_zero():</span><br><span class="line">  var n = <span class="number">100</span></span><br><span class="line">  <span class="keyword">while</span>(n&gt;<span class="number">0</span>):</span><br><span class="line">    n--</span><br><span class="line">    <span class="keyword">yield</span>(get_tree(), <span class="string">"idle_frame"</span>)</span><br><span class="line"></span><br><span class="line">  print(<span class="string">"n到0了，散了散了"</span>)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  loop_until_zero() <span class="comment">#因为不需要resume，所以我们不需要把中断的状态赋值给某个变量</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="使用Yield传递变量的值"><a href="#使用Yield传递变量的值" class="headerlink" title="使用Yield传递变量的值"></a>使用Yield传递变量的值</h1><p>&emsp;&emsp;协程函数被Yield中断后，可以使用Resume或发射信号函数emit_signal来传递参数，作为Yield的返回值，传递给协程函数中使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用resume的情况</span></span><br><span class="line">func Execute():</span><br><span class="line">  var n = <span class="keyword">yield</span>()</span><br><span class="line">  print(n)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  var exe = Execute()</span><br><span class="line">  exe.resume(<span class="number">100</span>) <span class="comment">#100会作为yield()的返回值，赋值给上面的n</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用信号的情况</span></span><br><span class="line">signal Continue</span><br><span class="line"></span><br><span class="line">func Execute():</span><br><span class="line">  var n = <span class="keyword">yield</span>(self, <span class="string">"Continue"</span>)</span><br><span class="line">  print(n)</span><br><span class="line"></span><br><span class="line">func _ready():</span><br><span class="line">  var exe = Execute()</span><br><span class="line">  emit_signal(self, <span class="string">"Continue"</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Giresharu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://giresharu.github.io/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/" title="【Godot笔记】协程与Yield">http://giresharu.github.io/2021/05/12/【Godot笔记】协程与Yield/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Godot/" rel="tag"><i class="fa fa-tag"></i> Godot</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://giresharu.github.io/2020/03/17/Hello-World/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Giresharu">
-      <meta itemprop="description" content="蜗牛背着那重重的壳呀，一步一步往上爬">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿门阿前一棵葡萄树">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/17/Hello-World/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-17 16:21:00" itemprop="dateCreated datePublished" datetime="2020-03-17T16:21:00+08:00">2020-03-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-18 19:27:29" itemprop="dateModified" datetime="2020-03-18T19:27:29+08:00">2020-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/03/17/Hello-World/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&emsp;&emsp;博客终于搭建好了，第一篇日志就来测试一下所有常用的功能写法吧。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/17/Hello-World/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/17/Hello-World/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
-
 
           </div>
           
@@ -541,6 +512,7 @@ mjx-container + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初级范例"><span class="nav-number">1.</span> <span class="nav-text">初级范例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yield与信号激活"><span class="nav-number">2.</span> <span class="nav-text">Yield与信号激活</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点信号"><span class="nav-number">2.1.</span> <span class="nav-text">节点信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数结束信号"><span class="nav-number">2.2.</span> <span class="nav-text">函数结束信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每帧一次信号"><span class="nav-number">2.3.</span> <span class="nav-text">每帧一次信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计时器信号"><span class="nav-number">2.4.</span> <span class="nav-text">计时器信号</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#协程循环"><span class="nav-number">3.</span> <span class="nav-text">协程循环</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Yield传递变量的值"><span class="nav-number">4.</span> <span class="nav-text">使用Yield传递变量的值</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -680,7 +652,7 @@ mjx-container + br {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'http://giresharu.github.io/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'http://giresharu.github.io/2021/05/12/%E3%80%90Godot%E7%AC%94%E8%AE%B0%E3%80%91%E5%8D%8F%E7%A8%8B%E4%B8%8EYield/',]
       });
       });
   </script>
